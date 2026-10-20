@@ -46,6 +46,8 @@ La idea sirve para cualquier stack. Los ejemplos usan una app real (Spring Boot 
 
 ## 2. Cómo usarlo
 
+Requisitos de los ejemplos: Claude Code (o tu agente), git con worktrees, Docker, python3, jq, lsof y curl.
+
 1. Copiá este archivo a la raíz de tu repo (o pasale la URL a tu agente).
 2. Abrí tu agente de código en el repo y escribí:
 
@@ -234,6 +236,8 @@ Puntos que importan:
 - El frontend usa puerto estricto: si está ocupado, falla. Mejor fallar que caer en silencio en el puerto de otro slot.
 - `rm` se niega si hay cambios sin commitear.
 
+El ejemplo está pensado para macOS (`memory_pressure`, `footprint`, `stat -f`). En Linux, tu agente tiene que portar el chequeo de memoria (por ejemplo `MemAvailable` de `/proc/meminfo`) y usar `stat -c`.
+
 Ejemplo recortado: [`examples/scripts/wt.sh`](examples/scripts/wt.sh).
 
 ### 4.10 Vigilancia de recursos
@@ -371,3 +375,5 @@ En [`examples/`](examples/) hay versiones recortadas y genéricas. Son referenci
 | [`examples/.claude/agents/verifier.md`](examples/.claude/agents/verifier.md) | agente que verifica y no puede editar |
 | [`examples/.claude/skills/parallel-worktrees/SKILL.md`](examples/.claude/skills/parallel-worktrees/SKILL.md) | skill con descripción que dispara bien |
 | [`examples/wiki/AGENTS.md`](examples/wiki/AGENTS.md) | esquema de la wiki |
+
+No hay ejemplo de `scripts/dev-backend.sh`, `scripts/seed.py`, `scripts/resource-watch.sh` ni de las skills `dev-stack` y `wiki-*`. Dependen demasiado de cada stack. Tu agente los escribe a partir de las secciones 4.3, 4.4, 4.6 y 4.10.

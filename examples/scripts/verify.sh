@@ -8,7 +8,7 @@
 set -uo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-LINT_ERROR_BASELINE=28   # lower it when you fix some, never raise it
+LINT_ERROR_BASELINE=0    # set to your repo's current error count; lower it when you fix some, never raise it
 RUN_E2E=false
 ONLY=""
 while [[ $# -gt 0 ]]; do
